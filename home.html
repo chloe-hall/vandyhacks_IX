@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+<body>
+    <div id="inner">
+      <div id="hdr">
+        <span>
+        
+          <h1>Good<b>Pod</b></h1>
+        
+        </span>
+        </div>
+          <!--// hdr -->
+
+  <link rel="stylesheet" type="text/css" href="main.css" media="all" />
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="base.css" media="all" />
   <title>Document</title>
+  
+  
 
 <body>  
- <table id="myTable" class="table table-bordered">  
-<h1> GoodPod </h1>  
+ <table id="myTable" class="table table-bordered">   
+
+
   <thead>  
     <tr>  
       <th> Episode Name </th>  
       <th> Podcast Name </th>  
       <th> Minutes </th>  
+      <th> Date </th> 
+      <th> Rating </th> 
     </tr>  
   </thead>  
   <tbody> 
@@ -28,6 +48,12 @@
          <td>
         <textarea name="Minutes" placeholder="Minutes" th:field="${questionAnswerSet.question}" id="question" style="resize: none; width: 100%;"></textarea>
       </td>
+      <td>
+       <textarea name="Date" placeholder="Date" th:field="${questionAnswerSet.answer}" id="answer" style="resize: none; width: 100%;"></textarea>
+     </td>
+     <td>
+       <textarea name="Rating" placeholder="Rating" th:field="${questionAnswerSet.answer}" id="answer" style="resize: none; width: 100%;"></textarea>
+     </td>
       <td>  
         <button class="save"> Save </button>  
         <button class="edit"> Edit </button>  
@@ -70,4 +96,51 @@ $('.add').click(function() {
 });  
 </script>  
 </body>  
+
+<br/>
+
+<head>
+<body>
+    <div id="inner">
+      <div id="hdr">
+        <span>
+          <h2>Listening Stats</h2>
+        </span>
+        </div>
+          <!--// hdr -->
+
+<head>
+    <title>JavaScript Bar Chart</title>
+     <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+  </head>
+<body>
+    <div class = "chart" id="container" style="width: 100%; height: 100%"></div>
+    <script>
+      anychart.onDocumentReady(function() {
+ 
+        // set the data
+        var data = {
+            header: ["Date", "Count"],
+            rows: [
+              ["January", 10],
+              ["February", 25],
+              ["March", 15]
+        ]};
+ 
+        // create the chart
+        var chart = anychart.bar();
+ 
+        // add the data
+        chart.data(data);
+ 
+        // set the chart title
+        chart.title("Episodes Listened Per Month");
+ 
+        // draw
+        chart.container("container");
+        chart.draw();
+      });
+    </script>
+  </body>
+  
 </html lang="en">
