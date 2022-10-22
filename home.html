@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="base.css" media="all" />
+  <title>Document</title>
+
+<body>  
+ <table id="myTable" class="table table-bordered">  
+<h1> GoodPod </h1>  
+  <thead>  
+    <tr>  
+      <th> Episode Name </th>  
+      <th> Podcast Name </th>  
+      <th> Minutes </th>  
+    </tr>  
+  </thead>  
+  <tbody> 
+    <tr>  
+    <td>
+     <textarea name="Episode" placeholder="Episode" th:field="${questionAnswerSet.answer}" id="answer" style="resize: none; width: 100%;"></textarea>
+     </td>
+     <td>
+       <textarea name="Podcast" placeholder="Podcast" th:field="${questionAnswerSet.answer}" id="answer" style="resize: none; width: 100%;"></textarea>
+     </td>
+         <td>
+        <textarea name="Minutes" placeholder="Minutes" th:field="${questionAnswerSet.question}" id="question" style="resize: none; width: 100%;"></textarea>
+      </td>
+      <td>  
+        <button class="save"> Save </button>  
+        <button class="edit"> Edit </button>  
+        <button class="delete"> Delete </button>  
+      </td>  
+    </tr>  
+  </tbody>  
+</table>  
+
+<div class="table-data">
+    <input type="button" id="more_fields" onclick="add_fields();" value="Add More" class="btn btn-info" />
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>  
+<script>  
+$(document).on('click', '.edit', function() {  
+  $(this).parent().siblings('td.data').each(function() {  
+    var content = $(this).html();  
+    $(this).html('<input value="' + content + '" />');  
+  });  
+  $(this).siblings('.save').show();  
+  $(this).siblings('.delete').hide();  
+  $(this).hide();  
+});  
+$(document).on('click', '.save', function() {  
+  $('input').each(function() {  
+    var content = $(this).val();  
+    $(this).html(content);  
+    $(this).contents().unwrap();  
+  });  
+  $(this).siblings('.edit').show();  
+  $(this).siblings('.delete').show();  
+  $(this).hide();  
+});  
+$(document).on('click', '.delete', function() {  
+  $(this).parents('tr').remove();  
+});  
+$('.add').click(function() {  
+  $(this).parents('table').append('<tr><td class="data"></td><td class="data"></td><td class="data"></td><td><button class="save">Save</button><button class="edit">Edit</button> <button class="delete">Delete</button></td></tr>');  
+});  
+</script>  
+</body>  
+</html lang="en">
