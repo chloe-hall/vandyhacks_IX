@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+body{
+background: #ffffff;
+color: rgb(0, 0, 0);
+margin: 100px auto;
+
+}
+.rating {
+display: flex;
+flex-direction: row-reverse;
+justify-content: center;
+}
+
+.rating > input{ display:none;}
+
+.rating > label {
+position: relative;
+width: 1em;
+font-size: 8vw;
+color: #000000;
+cursor: pointer;
+}
+
+.rating > label::before{
+content: "\2605";
+position: absolute;
+opacity: 0;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+opacity: 1 !important;
+}
+
+.rating > input:checked ~ label:before{
+opacity:1;
+}
+
+.rating:hover > input:checked ~ label:before{ opacity: 0.4; }
+
+.siteheader {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: "Merriweather", "Georgia", serif;
+    text-align: center
+}
+
+.subtitle_stuff {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-family: "Merriweather", "Georgia", serif;
+  text-align: center;
+  font-style: italic
+}
+
+.podcast_title {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Merriweather", "Georgia", serif;
+  text-align: center;
+  font-style: bold
+}
+
+.border{
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  font-family: "Merriweather", "Georgia", serif;
+  text-align: center;
+  font-style: bold
+}
+
+.img{
+  border: 3px solid rgb(0, 0, 0);
+  display: block;
+  margin-left: 175px;
+  margin-right: 175px;
+}
+
+.review {
+  color: rgb(73, 73, 73);
+  font-size: 12px;
+  font-family: "Merriweather", "Georgia", serif;
+  text-align: left;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+  </style>
+</head>
+
+<body>
+
+<div class="siteheader">
+<h1>
+  The Goodreads of Podcasts!
+</h1>
+</div>
+
+<div class = "border">
+  <h3>
+    -----------------------------------------------------------------
+  </h3>
+</div>
+
+<div class = "podcast_title">
+  <h2>
+    Tentacles Concept
+  </h2>
+</div>
+
+<div id = "author" class = "subtitle_stuff"> 
+  <p>
+    Baseball Tonight with Buster Olney
+  </p>
+</div>
+
+
+<div class = "img">
+  <img src="buster.png" alt="ESPN Baseball Tonight" height="200px" width="200px">
+</div>
+
+<div class = border>
+  <pre>
+-----------------------------
+  </pre>
+  </div>
+
+<div class = "subtitle_stuff">
+<h3>
+  episode rating:
+</h3>
+
+</div>
+
+<div class="rating">
+    <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+    <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+  </div>
+
+  <div class = border>
+    <pre>
+-----------------------------
+    </pre>
+    </div>
+
+<div class="subtitle_stuff">
+  review:
+</div>
+
+<div class="review">
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+</div>
+
+</body>
+
+</html>
